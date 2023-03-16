@@ -63,5 +63,25 @@ public class TarxetaFidelizacionTest {
     }
 
     
+    @Test
+    public void testFaltanPuntosRegaloPrueba5PRegalo() {
+        System.out.println("faltanPuntosRegalo para un regalo de 5 puntos");
+        int numPuntosRegalo = 5;
+        TarxetaFidelizacion instance = new TarxetaFidelizacion();
+        instance.setPuntos(5);
+        boolean result = instance.faltanPuntosRegalo(numPuntosRegalo);
+        assertFalse(result);
+    }
+
     
+    @Test
+    public void testFaltanPuntosRegaloPrueba10PRegalo() {
+        System.out.println("faltanPuntosRegalo para un regalo de 10 puntos");
+        int numPuntosRegalo = 10;
+        TarxetaFidelizacion instance = new TarxetaFidelizacion();
+        instance.setPuntos(5);
+        boolean result = instance.faltanPuntosRegalo(numPuntosRegalo);
+        assertTrue(result);
+    }
+
 }

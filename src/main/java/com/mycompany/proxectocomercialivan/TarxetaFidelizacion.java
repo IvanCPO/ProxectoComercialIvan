@@ -20,15 +20,36 @@ public class TarxetaFidelizacion {
     }
     
     public boolean obterPuntos(int valorCompra, boolean vip){
-        
+        int numPuntos=0;
+        if (valorCompra>0 && vip) {
+            this.puntos+=valorCompra/10;
+            return true;
+        }else   if (valorCompra>0) {
+            this.puntos+=valorCompra/20;
+            return true;
+        }
+        return false;
     }
     
     public boolean abonarGaraxe(){
-        
+        if (this.puntos>=1){
+		this.puntos--;
+		return true;
+	}
+	return false;
     }
     
     public int obterRegalo(int numPuntosRegalo){
-        
+        int resultado=0;
+	if (this.puntos<numPuntosRegalo){
+		resultado=-1;
+	}else if (this.puntos==numPuntosRegalo){
+		this.puntos=resultado;
+	}else{
+		this.puntos-=numPuntosRegalo;
+		resultado=1;
+	}
+	return resultado;
     }
 
     public int getPuntos() {
